@@ -1,72 +1,73 @@
-🚀 Express API Starter
+# 🚀 Express API Starter
 
 A clean, minimal, and scalable Express.js REST API boilerplate — perfect for rapid backend development and easy integration with any frontend or mobile stack.
 
-📦 Features
+## 📦 Features
 
-✅ Modular Routing – Organized routes with controllers
+- ✅ **Modular Routing** – Organized routes with controllers
+- 🔐 **Future-Ready Structure** – Middleware-ready, validation-ready
+- 🧱 **RESTful by Design** – Easily extendable for real-world APIs
+- 💡 **Environment Config** – Uses `.env` for clean configuration
+- 🧪 **Great for Learning** – Simple, readable code for beginners and beyond
 
-🔐 Future-Ready Structure – Middleware-ready, validation-ready
+## 🔧 Tech Stack
 
-🧱 RESTful by Design – Easily extendable for real-world APIs
+- Node.js
+- Express.js
+- ES Modules (import/export)
+- dotenv for environment management
+- *(More tools like Helmet, Morgan, CORS can be added)*
 
-💡 Environment Config – Uses .env for clean configuration
+## 🚀 Getting Started
 
-🧪 Great for Learning – Simple, readable code for beginners and beyond
+1. **Clone the repository**
 
-🔧 Tech Stack
+   ```bash
+   git clone https://github.com/yourusername/express-api-starter.git
+   cd express-api-starter
+   ```
 
-Node.js
+2. **Install dependencies**
 
-Express.js
+   ```bash
+   npm install
+   ```
 
-ES Modules (import/export)
+3. **Create a `.env` file**
 
-dotenv for environment management
+   ```
+   PORT=5000
+   ```
 
-(More tools like Helmet, Morgan, CORS can be added)
+4. **Start the server**
 
-🚀 Getting Started
+   ```bash
+   npm run dev
+   ```
 
-1. Clone the repository
+   Server will run at: [http://localhost:5000](http://localhost:5000)
 
-git clone https://github.com/yourusername/express-api-starter.git
-cd express-api-starter
+## 📁 Folder Structure
 
-2. Install dependencies
-
-npm install
-
-3. Create a .env file
-
-PORT=5000
-
-4. Start the server
-
-npm run dev
-
-Server will run at: http://localhost:5000
-
-📁 Folder Structure
-
+```
 ├── router/
 │   └── userRoute.js       # Handles user routes
 ├── controllers/
 │   └── user.js            # Controller logic
 ├── index.js               # Entry point
 ├── .env                   # Environment config
-├── package.json           
+├── package.json
+```
 
-📬 Example Routes
+## 📬 Example Routes
 
-GET /users → Returns dummy data from controller
+- **GET** `/users` → Returns dummy data from controller
+- **POST** `/users` → Accepts JSON body with `email` & `password`
 
-POST /users → Accepts JSON body with email & password
+## 📈 Future Additions (Ideas)
 
-📈 Future Additions (Ideas)
+- *To be determined*
 
-
-
-✨ Author
+## ✨ Author
 
 Bigyan Basnet
