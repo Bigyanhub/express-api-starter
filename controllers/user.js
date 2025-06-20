@@ -8,3 +8,4 @@ export const postUser = (req, res)=>{
   res.send({email, password})
 };
 
+    
