@@ -61,7 +61,7 @@ DB_NAME=your_database_name
 npm run dev
 ```
 
-> Server will run at: `http://localhost:5000`
+> Server will run at: `http://localhost:5000` 
 
 ---
 
@@ -98,7 +98,3 @@ npm run dev
 * [ ] Global Error Handler
 
 ---
-
-## ✨ Author
-
-**Bigyan Basnet**
