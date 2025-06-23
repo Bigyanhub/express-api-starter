@@ -4,19 +4,25 @@ export const getData = (req, res)=>{
   res.send('Hello, this is the data you requested! using getData controller');
 };
 
+// Function to insert a new user into the database
+// This function expects the request body to contain 'name', 'email', and 'password'
 export const postUser = (req, res)=>{
   const{ name, email, password} = req.body;
-  
-    const q1 = `INSERT INTO  user (name, email, password) VALUES (?, ?, ?)`;
-    db.query(q1, [name, email, password], (err, result) => {
-      if (err) {
-        return res.send({ message: "Error inserting data", err });
-      }
-      // After successful insert, send response
-      return res.send({ message: "Data inserted successfully", result });
-    });
-  };
+  // Check if all required fields are provided
+  if (!name || !email || !password) {
+    return res.send({ message: "All fields are required" });
+  }
+  const q1 = `INSERT INTO  user (name, email, password) VALUES (?, ?, ?)`;
+  db.query(q1, [name, email, password], (err, result) => {
+    if (err) {
+      return res.send({ message: "Error inserting data", err });
+    }
+    // After successful insert, send response
+    return res.send({ message: "Data inserted successfully", result });
+  });
+};
 
+// Function to get all users from the database
   export const getAllUsers = (req, res)=>{
     const q2 = `SELECT * FROM user`;
     db.query(q2, (err, result)=>{
