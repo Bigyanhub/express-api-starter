@@ -31,4 +31,29 @@ export const postUser = (req, res)=>{
       }
       return res.send({message: "Data fetched successfully", result});
     });
-  };;
+  };
+  
+  export const updateUser = (req, res)=>{
+    const { id } = req.params
+    const { name, email , password} = req.body
+
+    const q = `UPDATE user SET name = ? , email = ? , password = ? WHERE id = ?`;
+    db.query(q, [name , email, password, id], (err, result)=>{
+      if(err) {
+        return res.send({ message: "Error in updating data", err });
+      }
+      return res.send({ message: "Data updated successfully", result });
+    });
+  }
+
+  export const deleteUser = (req, res)=>{
+    const { id } = req.params;
+
+    const q = `DELETE FROM user WHERE id = ?`;
+    db.query(q, [id], (err, result) => {
+      if (err) {
+        return res.send({ message: "Error in deleting data", err });
+      }
+      return res.send({ message: "Data deleted successfully", result });
+    });
+  }
