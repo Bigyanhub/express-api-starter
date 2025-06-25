@@ -1,12 +1,11 @@
 import express from 'express';
-import { getData, postUser , getAllUsers, updateUser, deleteUser} from '../controllers/user.js';
-
+import { addUser, deleteUser, updateUser, showAllUser } from '../controllers/user.js';
 const route= express.Router();
 
-route.get("/get-data", getData)
-route.post("/post-user", postUser)
-route.get("/get-all-users", getAllUsers)
-route.post("/update-user/:id", updateUser)
-route.post("/delete-user/:id", deleteUser)
+// Define routes for user operations
+route.post("/addUser", addUser)
+route.post("/deleteUser/:id", deleteUser)
+route.post("/updateUser/:id", updateUser)
+route.get("/showAllUser", showAllUser)
 
 export default route

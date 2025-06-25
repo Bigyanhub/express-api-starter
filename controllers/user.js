@@ -1,12 +1,12 @@
 import db from '../database/db.js';
 
+//This one is just for testing GET request
 export const getData = (req, res)=>{
   res.send('Hello, this is the data you requested! using getData controller');
 };
 
-// Function to insert a new user into the database
-// This function expects the request body to contain 'name', 'email', and 'password'
-export const postUser = (req, res)=>{
+  // For inserting a new user into the database use addUser function and path /addUser
+  export const addUser = (req, res)=>{
   const{ name, email, password} = req.body;
   // Check if all required fields are provided
   if (!name || !email || !password) {
@@ -22,17 +22,20 @@ export const postUser = (req, res)=>{
   });
 };
 
-// Function to get all users from the database
-  export const getAllUsers = (req, res)=>{
-    const q2 = `SELECT * FROM user`;
-    db.query(q2, (err, result)=>{
-      if(err) {
-        return res.send({message: "Error in fetching and selecting data", err});
+  //For deleting a user from the database use deleteUser function
+  export const deleteUser = (req, res)=>{
+    const { id } = req.params;
+
+    const q = `DELETE FROM user WHERE id = ?`;
+    db.query(q, [id], (err, result) => {
+      if (err) {
+        return res.send({ message: "Error in deleting data", err });
       }
-      return res.send({message: "Data fetched successfully", result});
+      return res.send({ message: "Data deleted successfully", result });
     });
-  };
-  
+  }
+
+  //For updating a user in the database use updateUser function
   export const updateUser = (req, res)=>{
     const { id } = req.params
     const { name, email , password} = req.body
@@ -46,14 +49,13 @@ export const postUser = (req, res)=>{
     });
   }
 
-  export const deleteUser = (req, res)=>{
-    const { id } = req.params;
-
-    const q = `DELETE FROM user WHERE id = ?`;
-    db.query(q, [id], (err, result) => {
-      if (err) {
-        return res.send({ message: "Error in deleting data", err });
+// For showing all users from the database use showAllUsers function
+  export const showAllUser = (req, res)=>{
+    const q2 = `SELECT * FROM user`;
+    db.query(q2, (err, result)=>{
+      if(err) {
+        return res.send({message: "Error in fetching and selecting data", err});
       }
-      return res.send({ message: "Data deleted successfully", result });
+      return res.send({message: "Data fetched successfully", result});
     });
-  }
+  };
